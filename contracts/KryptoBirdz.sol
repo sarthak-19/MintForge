@@ -7,7 +7,7 @@ contract KryptoBird is ERC721Connector
 {
     string[] public kryptoBirdz;
     mapping(string=>bool) _kryptoBirdzExists;
-    constructor () ERC721Connector("Kryptobird","KBIRDZ")
+    constructor () ERC721Connector("KryptoBird","KBIRDZ")
     {
 
     }
