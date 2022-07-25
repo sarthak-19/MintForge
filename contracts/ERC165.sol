@@ -35,6 +35,7 @@ contract ERC165 is IERC165
     }
     constructor()
     {
-        _registerInterface(0x01ffc9a7);
+        // _registerInterface(0x01ffc9a7);
+        _registerInterface(bytes4(keccak256('supportsInterface(bytes4)')));
     }
 }

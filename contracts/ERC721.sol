@@ -2,10 +2,11 @@
 pragma solidity ^0.8.0;
 
 import './ERC165.sol';
-contract ERC721
+import './interfaces/IERC721.sol';
+contract ERC721 is ERC165,IERC721
 {
-    event Transfer(address indexed from, address indexed to, uint256 indexed tokenId);
-    event Approval(address indexed owner, address indexed approved, uint256 indexed tokenId);
+    // event Transfer(address indexed from, address indexed to, uint256 indexed tokenId);
+    // event Approval(address indexed owner, address indexed approved, uint256 indexed tokenId);
 
     //mapping token from id to owner
     mapping(uint256 => address ) private _tokenOwner;
@@ -15,14 +16,26 @@ contract ERC721
 
     // Mapping from token id to approved addresses
     mapping(uint256 => address) private _tokenApprovals; 
+    mapping(bytes4 => bool) private _supportedInterfaces;
+    constructor()
+    {
+        _registerInterface(bytes4(keccak256('balanceOf(bytes4)')^
+        keccak256('ownerOf(butes4)')^
+        keccak256('transferFrom(bytes4)')^
+        keccak256('approve(bytes4)')
+        ));
 
-    function balanceOf(address _owner) public view returns(uint256)
+        ////function supports interface value :  0x1e895acb
+    }
+    
+
+    function balanceOf(address _owner) public override view returns(uint256)
     {
         require(_owner != address(0), "invalid owner address for token query");
         return _ownedTokensCount[_owner];
     }
 
-    function ownerOf(uint256 _tokenId) public view returns(address)
+    function ownerOf(uint256 _tokenId) public override view returns(address)
     {
         address owner = _tokenOwner[_tokenId];
         require(owner!=address(0), "Owner does not exist for the given token ID");
@@ -57,7 +70,7 @@ contract ERC721
         emit Transfer(_from, _to, _tokenId);
     }
 
-    function transferFrom(address _from, address _to, uint256 _tokenId)  public {
+    function transferFrom(address _from, address _to, uint256 _tokenId)  public override  {
         require(isApprovedOrOwner(msg.sender, _tokenId));
         _transferFrom(_from, _to, _tokenId);
 
@@ -68,7 +81,7 @@ contract ERC721
     // 3. require that we cant approve sending tokens of the owner to the owner (current caller)
     // 4. update the map of the approval addresses
 
-    function approve(address _to, uint256 tokenId) public {
+    function approve(address _to, uint256 tokenId) public override {
         address owner = ownerOf(tokenId);
         require(_to != owner, 'Error - approval to current owner');
         require(msg.sender == owner, 'Current caller is not the owner of the token');

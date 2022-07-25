@@ -1,8 +1,8 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 import './ERC721.sol';
-
-contract ERC721Enumerable is ERC721
+import './interfaces/IERC721Enumerable.sol';
+contract ERC721Enumerable is ERC721,IERC721Enumerable
 {
     uint256[] private _allTokens;
 
@@ -15,7 +15,17 @@ contract ERC721Enumerable is ERC721
     //mapping from token Id to index of owner token list
     mapping(uint256 => uint256) private _ownedTokensIndex;
 
-    function totalSupply() public view returns(uint256)
+    constructor()
+    {
+        _registerInterface(bytes4(keccak256('tokenOfOwnerByIndex(bytes4)')^
+        keccak256('totalSupply(butes4)')^
+        keccak256('tokenByIndex(bytes4)')
+        ));
+
+        ////function supports interface value :  0x1e895acb
+    }
+
+    function totalSupply() public view override returns(uint256)
     {
         return _allTokens.length;
     }
@@ -39,13 +49,13 @@ contract ERC721Enumerable is ERC721
         _ownedTokens[to].push(tokenId);
     }
 
-    function tokenByIndex(uint256 index) public view returns(uint256)
+    function tokenByIndex(uint256 index) public view override returns(uint256)
     {
         require(index<totalSupply(),"Specified global Index Does not Exist");
         return _allTokens[index];
     }
 
-    function tokenOfOwnerByIndex(address owner, uint256 index) public view returns(uint256)
+    function tokenOfOwnerByIndex(address owner, uint256 index) public view override returns(uint256)
     {
         require(index<balanceOf(owner),"Specified owner Index Does not Exist");
         return _ownedTokens[owner][index];
