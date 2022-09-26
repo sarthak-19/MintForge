@@ -55,7 +55,7 @@ contract('NftMarketplace', async (accounts)=>
 
     describe('indexing',async ()=>
     {
-        it('lists kryptoBirdz',async()=>
+        it('lists digitalTokens',async()=>
         {
             //mint 3 new tokens
             await contract.mint("https...2");
