@@ -1,5 +1,5 @@
-const KryptoBird = artifacts.require("KryptoBird");
+const NftMarketpalce = artifacts.require("NftMarketplace");
 
 module.exports = function(deployer) {
-  deployer.deploy(KryptoBird);
+  deployer.deploy(NftMarketpalce);
 }
