@@ -30,7 +30,7 @@
   "sourceMap": "",
   "deployedSourceMap": "",
   "source": "// SPDX-License-Identifier: MIT\r\n// pragma solidity >=0.7.0<0.9.0;\r\npragma solidity ^0.8.0;\r\n\r\n\r\ninterface IERC165 {\r\n    /// @notice Query if a contract implements an interface\r\n    /// @param interfaceID The interface identifier, as specified in ERC-165\r\n    /// @dev Interface identification is specified in ERC-165. This function\r\n    ///  uses less than 30,000 gas.\r\n    /// @return `true` if the contract implements `interfaceID` and\r\n    ///  `interfaceID` is not 0xffffffff, `false` otherwise\r\n    function supportsInterface(bytes4 interfaceID) external view returns (bool);\r\n}",
-  "sourcePath": "/media/sarthak/A0FEA906FEA8D5B6/Users/Sarthak/Documents/Web Development/NFT Marketplace/nft-marketplace/contracts/interfaces/IERC165.sol",
+  "sourcePath": "C:\\Users\\Sarthak\\Documents\\Web Development\\NFT-Marketplace\\contracts\\interfaces\\IERC165.sol",
   "ast": {
     "absolutePath": "project:/contracts/interfaces/IERC165.sol",
     "exportedSymbols": {
@@ -170,8 +170,8 @@
     "version": "0.8.17+commit.8df45f5f.Emscripten.clang"
   },
   "networks": {},
-  "schemaVersion": "3.4.10",
-  "updatedAt": "2022-09-23T15:47:55.631Z",
+  "schemaVersion": "3.4.7",
+  "updatedAt": "2022-11-12T18:14:01.852Z",
   "devdoc": {
     "kind": "dev",
     "methods": {

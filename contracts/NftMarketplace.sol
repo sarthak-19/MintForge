@@ -14,7 +14,7 @@ contract NftMarketplace is ERC721Connector
 
     function mint(string memory _digitalToken) public
     {
-        require(_digitalTokenExists[_digitalToken]==false,"Kryptobird already exists");
+        require(_digitalTokenExists[_digitalToken]==false,"Token already exists");
         digitalTokens.push(_digitalToken);
         uint _id = uint(digitalTokens.length - 1);
         _mint(msg.sender,_id);
