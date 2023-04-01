@@ -67,7 +67,7 @@
   "sourceMap": "",
   "deployedSourceMap": "",
   "source": "// SPDX-License-Identifier: MIT\r\npragma solidity ^0.8.0;\r\ninterface IERC721Enumerable  \r\n{\r\n    /// @notice Count NFTs tracked by this contract\r\n    /// @return A count of valid NFTs tracked by this contract, where each one of\r\n    ///  them has an assigned and queryable owner not equal to the zero address\r\n    function totalSupply() external view returns (uint256);\r\n\r\n    /// @notice Enumerate valid NFTs\r\n    /// @dev Throws if `_index` >= `totalSupply()`.\r\n    /// @param _index A counter less than `totalSupply()`\r\n    /// @return The token identifier for the `_index`th NFT,\r\n    ///  (sort order not specified)\r\n    function tokenByIndex(uint256 _index) external view returns (uint256);\r\n\r\n    /// @notice Enumerate NFTs assigned to an owner\r\n    /// @dev Throws if `_index` >= `balanceOf(_owner)` or if\r\n    ///  `_owner` is the zero address, representing invalid NFTs.\r\n    /// @param _owner An address where we are interested in NFTs owned by them\r\n    /// @param _index A counter less than `balanceOf(_owner)`\r\n    /// @return The token identifier for the `_index`th NFT assigned to `_owner`,\r\n    ///   (sort order not specified)\r\n    function tokenOfOwnerByIndex(address _owner, uint256 _index) external view returns (uint256);\r\n}",
-  "sourcePath": "/media/sarthak/A0FEA906FEA8D5B6/Users/Sarthak/Documents/Web Development/NFT Marketplace/nft-marketplace/contracts/interfaces/IERC721Enumerable.sol",
+  "sourcePath": "C:\\Users\\Sarthak\\Documents\\Web Development\\NFT-Marketplace\\contracts\\interfaces\\IERC721Enumerable.sol",
   "ast": {
     "absolutePath": "project:/contracts/interfaces/IERC721Enumerable.sol",
     "exportedSymbols": {
@@ -385,8 +385,8 @@
     "version": "0.8.17+commit.8df45f5f.Emscripten.clang"
   },
   "networks": {},
-  "schemaVersion": "3.4.10",
-  "updatedAt": "2022-09-23T15:47:55.655Z",
+  "schemaVersion": "3.4.7",
+  "updatedAt": "2022-11-12T18:14:01.858Z",
   "devdoc": {
     "kind": "dev",
     "methods": {
